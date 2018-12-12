@@ -25,19 +25,34 @@ class Contacts extends Component {
     ]
   };
 
+  deleteContact = id => {
+    console.log("Contacts.js > deleteContact(id) =>", id);
+    const { contacts } = this.state;
+
+    const newContacts = contacts.filter(contact => contact.id !== id);
+
+    this.setState({
+      contacts: newContacts
+    });
+  };
+
   render() {
+    // console.log("Contacts.js -> this.state => ", this.state);
     // we are just pulling contacts out of this.state (destructuring)
     const { contacts } = this.state;
-    console.log("Contacts.js -> this.state => ", this.state);
 
     // .map loops thru contact and returns name, email, phone
     // we need to assign key to the id for it to be unique
     return (
-      <div>
+      <React.Fragment>
         {contacts.map(contact => (
-          <Contact key={contact.id} contact={contact} />
+          <Contact
+            key={contact.id}
+            contact={contact}
+            deleteClickHandler={this.deleteContact.bind(this, contact.id)}
+          />
         ))}
-      </div>
+      </React.Fragment>
     );
   }
 }
