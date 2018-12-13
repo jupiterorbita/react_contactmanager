@@ -1,6 +1,8 @@
 //stateless functional component
 import React from "react";
 import PropTypes from "prop-types";
+//npm install classnames <- for VALIDATION
+import classnames from "classnames";
 
 // this holds the fields in the form
 const TextInputGroup = ({
@@ -9,7 +11,8 @@ const TextInputGroup = ({
   value,
   placeholder,
   type,
-  onChange
+  onChange,
+  error
 }) => {
   return (
     <div className="form-group">
@@ -17,11 +20,14 @@ const TextInputGroup = ({
       <input
         type={type}
         name={name}
-        className="form-control form-control-lg"
+        className={classnames("form-control formcontrol-lg", {
+          "is-invalid": error
+        })}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
       />
+      {error && <div className="invalid-feedback">{error}</div>}
     </div>
   );
 };
@@ -33,7 +39,8 @@ TextInputGroup.propTypes = {
   placeholder: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  error: PropTypes.string
 };
 
 //add default props like text exept email
