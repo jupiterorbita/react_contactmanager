@@ -1,6 +1,7 @@
 # Contact Manager <img style="margin-top:0; position:absolute; margin-left:10px" width="100" src="React-logo.png">
 ### full CRUD web app using: 
   * [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+  * [axios](https://www.npmjs.com/package/axios) for http requests
   * [classnames.js](https://www.npmjs.com/package/classnames) for validation
   * [bootstrap](https://getbootstrap.com/)
   * [jsonplaceholder api](https://jsonplaceholder.typicode.com/)
