@@ -1,3 +1,20 @@
+# Contact Manager <img style="margin-top:-5px; position:absolute; margin-left:10px" width="100" src="React-logo.png">
+### full CRUD web app using: 
+  * [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+  * [classnames.js](https://www.npmjs.com/package/classnames) for validation
+  * [bootstrap](https://getbootstrap.com/)
+  * [jsonplaceholder api](https://jsonplaceholder.typicode.com/)
+  * [uuid](https://www.npmjs.com/package/uuid)
+<p align="center">
+  <img style="border:1px solid #333" width="270" src="preview_new.gif"> &nbsp; &nbsp;
+  <img style="border:1px solid #333" width="270" src="preview_edit.gif">
+
+</p>
+
+
+by John Misirlakis
+
+<hr>
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
