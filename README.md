@@ -1,4 +1,4 @@
-# Contact Manager <img style="margin-top:-5px; position:absolute; margin-left:10px" width="100" src="React-logo.png">
+# Contact Manager <img style="margin-top:0; position:absolute; margin-left:10px" width="100" src="React-logo.png">
 ### full CRUD web app using: 
   * [react-router-dom](https://www.npmjs.com/package/react-router-dom)
   * [classnames.js](https://www.npmjs.com/package/classnames) for validation
