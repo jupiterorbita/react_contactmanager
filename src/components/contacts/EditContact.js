@@ -1,18 +1,32 @@
 import React, { Component } from "react";
 import { Consumer } from "../../context";
 import TextInputGroup from "../layout/TextInputGroup";
-//npm install uuid
-// import uuid from "uuid";
 import axios from "axios";
 
-class AddContact extends Component {
-  // each form field is a piece of the state
+class EditContact extends Component {
   state = {
     name: "",
     email: "",
     phone: "",
     errors: {}
   };
+
+  async componentDidMount() {
+    // destructure and get the id from the url
+    const { id } = this.props.match.params;
+    const res = await axios.get(
+      `https://jsonplaceholder.typicode.com/users/${id}`
+    );
+
+    //we're going to get back an obj, put res data in a var
+    const editedContact = res.data;
+
+    this.setState({
+      name: editedContact.name,
+      email: editedContact.email,
+      phone: editedContact.phone
+    });
+  }
 
   onSubmit = async (dispatch, e) => {
     e.preventDefault();
@@ -32,35 +46,24 @@ class AddContact extends Component {
       return;
     }
 
-    // if the key and value are the same ex. name: name, then just write name (ES6)
-    const newContact = {
-      // id: uuid(),
+    const updateContact = {
       name,
       email,
       phone
     };
-    console.log("submitting form this.state => ", this.state);
-    console.log("getting response...");
 
-    // when sending you have to send newContact!!!
-    const res = await axios.post(
-      "https://jsonplaceholder.typicode.com/users",
-      newContact
+    // THE ID COMES FROM THE RES
+
+    const { id } = this.props.match.params;
+
+    // update/put request, SECOND PARAM SEND THE DATA!!!!
+    const res = await axios.put(
+      `https://jsonplaceholder.typicode.com/users/${id}`,
+      updateContact
     );
 
-    dispatch({ type: "ADD_CONTACT", payload: res.data });
-
-    //   // bofore refactoring
-    // axios
-    //   .post("https://jsonplaceholder.typicode.com/users", newContact)
-    //   .then(res => {
-    //     console.log("got response");
-    //     // instead of sending our new contact to payload
-    //     // we want the response to come back
-    //     dispatch({ type: "ADD_CONTACT", payload: res.data });
-    //   });
-
-    // dispatch({ type: "ADD_CONTACT", payload: newContact });
+    //payload comes from the res
+    dispatch({ type: "UPDATE_CONTACT", payload: res.data });
 
     //clear the field after addContact Clear state, clear errors obj
     this.setState({
@@ -92,7 +95,7 @@ class AddContact extends Component {
           const { dispatch } = value;
           return (
             <div className="card mb-3">
-              <div className="card-header">Add Contact</div>
+              <div className="card-header">Edit Contact</div>
               <div className="card-body">
                 <form onSubmit={this.onSubmit.bind(this, dispatch)}>
                   <TextInputGroup
@@ -123,7 +126,7 @@ class AddContact extends Component {
 
                   <input
                     type="submit"
-                    value="Add Contact"
+                    value="Edit Contact"
                     className="btn btn-light btn-block"
                   />
                 </form>
@@ -136,4 +139,4 @@ class AddContact extends Component {
   }
 }
 
-export default AddContact;
+export default EditContact;
