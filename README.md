@@ -1,19 +1,24 @@
 # Contact Manager <img style="margin-top:0; position:absolute; margin-left:10px" width="100" src="React-logo.png">
+
+### by [John Misirlakis](https://www.linkedin.com/in/misirlakis/)  
+
 ### full CRUD web app using: 
-  * [react-router-dom](https://www.npmjs.com/package/react-router-dom)
-  * [axios](https://www.npmjs.com/package/axios) for http requests
-  * [classnames.js](https://www.npmjs.com/package/classnames) for validation
-  * [bootstrap](https://getbootstrap.com/)
-  * [jsonplaceholder api](https://jsonplaceholder.typicode.com/)
-  * [uuid](https://www.npmjs.com/package/uuid)
+  * [react-router-dom](https://www.npmjs.com/package/react-router-dom) - DOM bindings for React Router
+  * [axios](https://www.npmjs.com/package/axios) - Promise based HTTP client
+  * [classnames.js](https://www.npmjs.com/package/classnames) - Validations
+  * [bootstrap](https://getbootstrap.com/) - Responsive, mobile-first front-end component library
+  * [jsonplaceholder api](https://jsonplaceholder.typicode.com/) - Fake Online REST API for Testing and Prototyping 
+  * [uuid](https://www.npmjs.com/package/uuid) - Simple, fast generation of RFC4122 UUIDS
+
+ 
+  
 <p align="center">
   <img style="border:1px solid #333" width="270" src="preview_new.gif"> &nbsp; &nbsp;
   <img style="border:1px solid #333" width="270" src="preview_edit.gif">
-
 </p>
 
+For this version the data is nonpersisten.
 
-by John Misirlakis
 
 <hr>
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
